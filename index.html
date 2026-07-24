@@ -399,6 +399,72 @@
     line-height: 1.4;
   }
 
+  /* FAQ */
+  .faq {
+    background: var(--navy-mid);
+    padding: 90px 24px;
+    position: relative;
+    border-top: 1px solid rgba(245, 200, 66, 0.12);
+  }
+
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .faq-item {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(245, 200, 66, 0.12);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: border-color 0.2s, background 0.2s;
+  }
+
+  .faq-item[open] {
+    border-color: rgba(245, 200, 66, 0.35);
+    background: rgba(245, 200, 66, 0.05);
+  }
+
+  .faq-item summary {
+    list-style: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 20px 22px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--off-white);
+    line-height: 1.25;
+  }
+
+  .faq-item summary::-webkit-details-marker { display: none; }
+
+  .faq-item summary::after {
+    content: '+';
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--gold);
+    flex-shrink: 0;
+    line-height: 1;
+  }
+
+  .faq-item[open] summary::after { content: '\2013'; }
+
+  .faq-item summary:hover { color: var(--white); }
+
+  .faq-answer {
+    padding: 0 22px 22px;
+    font-size: 16px;
+    font-weight: 300;
+    color: var(--text);
+    line-height: 1.75;
+  }
+
   /* REVIEWS */
   .reviews {
     background: var(--navy);
@@ -755,6 +821,9 @@
     .hero-feat:nth-child(4) { border-top: 1px solid rgba(245, 200, 66, 0.15); }
 
     .about { padding: 64px 20px; }
+    .faq { padding: 64px 20px; }
+    .faq-item summary { font-size: 18px; padding: 18px 18px; }
+    .faq-answer { padding: 0 18px 18px; }
     .services-grid { grid-template-columns: 1fr; }
 
     .footer-inner {
@@ -922,6 +991,125 @@
     .modal-card { padding: 30px 22px; }
   }
 </style>
+
+<!-- Structured data: LocalBusiness / Electrician -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Electrician",
+  "name": "Somersault Electrical",
+  "image": "https://somersaultelectrical.com/assets/somersault-logo.png",
+  "url": "https://somersaultelectrical.com",
+  "telephone": "+61448888004",
+  "priceRange": "$$",
+  "description": "Reliable local electrician servicing Sydney's Lower North Shore. Specialising in residential maintenance, fault finding, lighting, power points, switchboard upgrades and small renovation works.",
+  "areaServed": [
+    { "@type": "Place", "name": "Northern Beaches, NSW" },
+    { "@type": "Place", "name": "Sydney CBD, NSW" },
+    { "@type": "Place", "name": "Upper North Shore, NSW" },
+    { "@type": "Place", "name": "Lower North Shore, NSW" }
+  ],
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+      "opens": "08:00",
+      "closes": "20:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Saturday",
+      "opens": "09:00",
+      "closes": "14:00"
+    }
+  ],
+  "sameAs": [
+    "https://www.facebook.com/somersaultelectrical",
+    "https://www.instagram.com/somersaultelectrical/"
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Electrical Services",
+    "itemListElement": [
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Switchboard upgrades" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Electrical wiring installation and repair" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Fault finding and diagnostics" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Safety switch / RCD installation" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Smoke alarm installation and compliance" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Light fixture and outdoor lighting installation" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Power point and socket installation" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Emergency and urgent electrical repairs" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Strata and commercial electrical maintenance" } }
+    ]
+  }
+}
+</script>
+
+<!-- Structured data: FAQPage -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How much does a switchboard upgrade cost in Sydney?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Switchboard upgrade costs vary depending on your property's age, the number of circuits, and whether safety switches or additional capacity are needed. Contact Somersault Electrical on 0448 888 004 for a free, no-obligation quote tailored to your property."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need a licensed electrician for switchboard or wiring work in NSW?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Any electrical installation, repair, or switchboard work in NSW must be carried out by a licensed electrician to meet Australian safety standards. Somersault Electrical is fully licensed and insured for residential and commercial work."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What suburbs does Somersault Electrical service?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We service Sydney's Northern Beaches (from Manly to Palm Beach), the Sydney CBD, the Upper North Shore (from Roseville to Wahroonga), and the Lower North Shore (including Mosman, Chatswood, and Willoughby)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you offer emergency electrical repairs?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, we offer emergency and urgent electrical repairs for issues like power outages, faults, and safety concerns. Call 0448 888 004 directly for urgent callouts."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you work on strata properties and unit blocks?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, we carry out electrical maintenance and repairs for strata buildings, unit blocks, and retail shops across the Lower North Shore, alongside standard residential work."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How quickly can you respond to a call-out?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Response times depend on the day and job type, but we prioritise urgent safety issues and aim for prompt, same-day service where possible. Call 0448 888 004 to check current availability."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you provide free quotes?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, we offer free, competitive quotes for all electrical work. Get in touch via phone or the contact form on this site."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -1167,6 +1355,52 @@
     <div class="reviews-qr-card">
       <img src="assets/google-review-qr.png" alt="QR code linking to Somersault Electrical's Google review page" width="140" height="140">
       <span class="reviews-qr-label">Scan to Review</span>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="section-inner">
+    <p class="section-label">&#9889; FAQ</p>
+    <h2 class="section-title" style="color:#1f86c7;">Frequently Asked<br>Questions</h2>
+    <div class="faq-list">
+
+      <details class="faq-item">
+        <summary>How much does a switchboard upgrade cost in Sydney?</summary>
+        <p class="faq-answer">Switchboard upgrade costs vary depending on your property's age, the number of circuits, and whether safety switches or additional capacity are needed. Contact Somersault Electrical on 0448 888 004 for a free, no-obligation quote tailored to your property.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary>Do I need a licensed electrician for switchboard or wiring work in NSW?</summary>
+        <p class="faq-answer">Yes. Any electrical installation, repair, or switchboard work in NSW must be carried out by a licensed electrician to meet Australian safety standards. Somersault Electrical is fully licensed and insured for residential and commercial work.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary>What suburbs does Somersault Electrical service?</summary>
+        <p class="faq-answer">We service Sydney's Northern Beaches (from Manly to Palm Beach), the Sydney CBD, the Upper North Shore (from Roseville to Wahroonga), and the Lower North Shore (including Mosman, Chatswood, and Willoughby).</p>
+      </details>
+
+      <details class="faq-item">
+        <summary>Do you offer emergency electrical repairs?</summary>
+        <p class="faq-answer">Yes, we offer emergency and urgent electrical repairs for issues like power outages, faults, and safety concerns. Call 0448 888 004 directly for urgent callouts.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary>Do you work on strata properties and unit blocks?</summary>
+        <p class="faq-answer">Yes, we carry out electrical maintenance and repairs for strata buildings, unit blocks, and retail shops across the Lower North Shore, alongside standard residential work.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary>How quickly can you respond to a call-out?</summary>
+        <p class="faq-answer">Response times depend on the day and job type, but we prioritise urgent safety issues and aim for prompt, same-day service where possible. Call 0448 888 004 to check current availability.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary>Do you provide free quotes?</summary>
+        <p class="faq-answer">Yes, we offer free, competitive quotes for all electrical work. Get in touch via phone or the contact form on this site.</p>
+      </details>
+
     </div>
   </div>
 </section>
